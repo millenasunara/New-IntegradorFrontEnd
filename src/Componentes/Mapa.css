@@ -1,0 +1,10 @@
+/* Mapa.css */
+.map-container {
+    height: 500px;
+    width: 95%;
+    display: flex;
+    margin-left: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px
+}

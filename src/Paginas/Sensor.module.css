@@ -1,0 +1,40 @@
+/* Sensor.module.css */
+.container {
+    width: 80%;
+    margin-top: 10px;
+    margin-left: auto; /* Centraliza horizontalmente */
+    margin-right: auto; /* Centraliza horizontalmente */
+    background-color: #ffffff; /* Cor de fundo branca */
+    border-radius: 30px; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.container h1{
+    color: #4d4eb7;
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #4d4eb7;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table th,
+.table td {
+    border-radius: 8px; /* Adicionando bordas arredondadas */
+}

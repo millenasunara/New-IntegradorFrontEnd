@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+  --cinza-claro: #fcfcfcbd;
+  --roxo-claro:#4d4eb7;
+  --verde-agua: #000000;
+  --verde-claro: #000000;
+  --cinza-escuro: #212529;
+  --cinza-tabela: #adb5bd;
+}
+
+*{
+  margin:0px;
+  padding: 0px;
+  box-sizing: border-box;
+
+}
+
+body {
+  /*background-image: url('../src/Imagem/fundo.jpg');*/
+  background-color: #f7f6fc;
+  background-size: cover;
+  background-position: center;
+}
+
+
+body, input{
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
