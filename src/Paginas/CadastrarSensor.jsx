@@ -41,9 +41,9 @@ export function CadastrarSensor() {
 
     return (
         <div className={styles.conteiner}>
-            <p className={styles.titulo}>Cadastro de Sensor</p>
 
             <form className={styles.formulario} onSubmit={handleSubmit(obterDadosFormulario)}>
+            <p className={styles.titulo}>Cadastro de Sensor</p>
                 <select {...register('tipo')} className={styles.campo}>
                     <option value="">Selecione o tipo de sensor</option>
                     <option value="Temperatura">Temperatura</option>
@@ -72,7 +72,7 @@ export function CadastrarSensor() {
                 {errors.unidade_medida && <p className={styles.mensagem}>{errors.unidade_medida.message}</p>}
 
                 <label className={styles.campoCheckbox}>
-                    Status Operacional:
+                    Status Operacional:  
                     <input {...register('status_operacional')} type="checkbox" />
                 </label>
 

@@ -59,7 +59,10 @@ export function Login() {
                     <p className={estilos.mensagem}>{errors.senha.message}</p>
                 )}
 
-                <button className={estilos.botao} >Entrar</button>
+                <div class="botao-container">
+                    <button className={estilos.botao} >Entrar</button>
+                </div>
+                
             </form>
         </div>
     );

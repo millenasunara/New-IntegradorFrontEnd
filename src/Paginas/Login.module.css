@@ -1,65 +1,57 @@
 .conteiner {
     display: flex;
-    flex-direction: column;
-    height: calc(105.2vh - 50px);
     justify-content: center;
     align-items: center;
-    background-color: var(--verde-claro);
-    margin: 0;
-}
-
-.imagem {
-    margin-right: 700px; 
-    max-width: 150vh; 
-    max-height: 50vh;
-}
-.titulo {
-    font-size: 40px;
-    color: #fff;
-    margin-left: 90px;
-    margin-top: -20px;
+    height: 100vh;
+  }
+  
+  .formulario {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .titulo {
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 20px;
-}
-
-.formulario {
-    display: flex;
-    flex-direction: column;
-    background-color: #19847F;
-    padding: 100px 30px;
-    border-radius: 10px;
-    width: 350px; 
-    margin-top: -20%;
-    margin-left: 45%;
-}
-
-.campo {
-    background-color: var(--cinza-claro);
-    margin-bottom: 10px;
-    padding: 5px;
-    border-radius: 6px;
-}
-
-.botao {
-    margin-top: 20px;
-    background-color: black;
-    color: white;
-    padding: 10px;
-    border-radius: 8px;
-}
-
-.mensagem {
-    font-size: .9rem;
-    font-weight: 600;
-    margin-top: -6px;
-    margin-bottom: 1rem;  
-    color: red; 
-}
-input{
-    margin-top: 10px;
-    padding: 0.7rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+    text-align: center;
+    color: var(--roxo-claro);
+  }
+  
+  .campo {
     width: 100%;
-    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+    outline: none;
+  }
+  
+  .campo:focus {
+    border-color: #999;
+  }
+  
+  .mensagem {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  
+  .botao {
+    background-color: var(--roxo-claro);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  
+  .botao-container {
+  display: flex; /* Ativa o layout Flexbox */
+  align-items: center; /* Alinha verticalmente no centro */
+  justify-content: center; /* Alinha horizontalmente no centro */
 }
