@@ -32,7 +32,7 @@ export function Sensor() {
     }
 
     if (error) {
-        return <div>Erro ao carregar os dados: {error.message}</div>;
+        return <div className={estilos.erro}>Erro ao carregar os dados: {error.message}</div>;
     }
 
     return (
