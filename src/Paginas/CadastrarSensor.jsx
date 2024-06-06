@@ -25,6 +25,7 @@ export function CadastrarSensor() {
     });
 
     async function obterDadosFormulario(data) {
+        console.log (data); 
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/sensores/', data, {
                 headers: {
@@ -35,6 +36,7 @@ export function CadastrarSensor() {
             alert('Sensor cadastrado com sucesso!');
             navigate('/inicial'); // Redireciona para a página inicial após o cadastro
         } catch (error) {
+            alert('Erro ao cadastrar sensor');
             console.error('Erro no cadastro de sensor', error);
         }
     }

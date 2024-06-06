@@ -33,6 +33,11 @@ export function Lateral() {
                     to='/inicial/cadastro'
                 >Cadastro
                 </Link>
+                <Link
+                    className={estilos.botao}
+                    to='/inicial/filtro'
+                >Filtrar
+                </Link>
             </section>
         </aside>
     )

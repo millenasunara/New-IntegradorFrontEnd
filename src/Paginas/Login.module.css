@@ -27,6 +27,7 @@
     border: 1px solid #ccc;
     border-radius: 40px;
     outline: none;
+    font-family: "Poppins", sans-serif;
   }
   
   .campo:focus {
@@ -47,6 +48,7 @@
     border-radius: 40px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-family: "Poppins", sans-serif;
   }
 
   

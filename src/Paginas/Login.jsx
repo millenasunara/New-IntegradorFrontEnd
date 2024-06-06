@@ -8,8 +8,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import Imagem from '../Imagem/logo.png'; // Correção na importação da imagem
 
 const schemaLogin = z.object({
-    usuario: z.string().min(5, 'Mínimo de 5 caracteres').max(20, 'Máximo de 10 caracteres'),
-    senha: z.string().min(1, 'Informe 6 caracteres').max(10, 'Máximo de 10 caracteres'),
+    usuario: z.string().min(1).max(20),
+    senha: z.string().min(1).max(100),
 });
 
 export function Login() {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import estilos from './Sensor.module.css';
+import { Link } from 'react-router-dom';
 
 export function Sensor() {
     const [sensores, setSensores] = useState([]);
@@ -32,7 +33,7 @@ export function Sensor() {
     }
 
     if (error) {
-        return <div className={estilos.erro}>Erro ao carregar os dados: {error.message}</div>;
+        return <div>Erro ao carregar os dados: {error.message}</div>;
     }
 
     return (
@@ -40,7 +41,7 @@ export function Sensor() {
             <h1>Lista de Sensores</h1>
             <table className={estilos.table}>
                 <thead>
-                    <tr>
+                    <tr className={estilos.headerRow}>
                         <th>ID</th>
                         <th>Tipo</th>
                         <th>Localização</th>
@@ -59,7 +60,9 @@ export function Sensor() {
                             <td>{sensor.responsavel}</td>
                             <td>{sensor.longitude}</td>
                             <td>{sensor.latitude}</td>
-                            {/* Aqui você pode adicionar o botão para alterar dados */}
+                            <td>
+                                <Link to={`alterar-sensor/${sensor.id}`} className={estilos.linkBotao}>Alterar</Link>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

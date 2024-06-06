@@ -1,63 +1,72 @@
-import { useForm } from 'react-hook-form'
-import styles from './Cadastro.module.css'
-import { z } from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { Link } from 'react-router-dom'
-
-const schemaPerfil = z.object({
-    nome: z.string().min(1, 'Informe um nome').max(25, 'Máximo de 25 caracteres'),
-
-    usuario: z.string().min(5, 'Mínimo de 5 caracteres').max(10, 'Máximo de 10 caracteres'),
-
-    senha: z.string().min(8, 'Informe 8 caracteres').max(8, 'Máximo de 8 caracteres'),
-
-})
-
-export function Cadastro(){
-
-    const { register, handleSubmit, formState: {errors} } = useForm({
-        resolver: zodResolver(schemaPerfil)
-    })
-
-    function obterDadosFormulario(data) {
-        console.log(`Nome: ${data.nome}`)
-        console.log(`Usuário: ${data.usuario}`)
-        console.log(`Senha: ${data.senha}`)
+import { useState } from 'react';
+import estilos from './Cadastro.module.css';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+ 
+export function Cadastro() {
+    const [nome, setNome] = useState('');
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+ 
+    const navigate = useNavigate();
+ 
+    async function obterDadosFormulario(event) {
+        event.preventDefault();
+        const data = { username: nome, email: email, password: senha };
+        try {
+            await axios.post('http://127.0.0.1:8000/api/create_user/', data);
+            alert('Usuário cadastrado com sucesso!');
+            await loginUser(nome, senha); // Chame a função de login aqui
+            navigate('/');
+        } catch (error) {
+            console.error('Erro no cadastro de usuário', error);
+        }
     }
-
+ 
+    async function loginUser(username, password) {
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/token/', {
+                username: username,
+                password: password
+            });
+            localStorage.setItem('access_token', response.data.access);
+            localStorage.setItem('refresh_token', response.data.refresh);
+        } catch (error) {
+            console.error('Erro no login do usuário', error);
+        }
+    }
+   
     return (
-        <div className={styles.container}>
-            <form className={styles.formulario} 
-            onSubmit={handleSubmit(obterDadosFormulario)}>
-                <p className={styles.titulo}>Cadastro</p>
+        <div className={estilos.container}>
+            <form className={estilos.formulario} onSubmit={obterDadosFormulario}>
+                <div className={estilos.estiloCadastro}>Cadastro</div>
                 <input
-                {...register('nome')} // Pegando todos os recursos da funçõo register
-                placeholder="Nome" 
-                className={styles.campo} />
-
-                {errors.nome && (
-                    <p> {errors.nome.message} </p>
-                )}
-
-                <input {...register('usuario')}
-                placeholder="Usuário" 
-                className={styles.campo} />
-
-                
-                {errors.usuario && (
-                    <p> {errors.usuario.message} </p>
-                )}
-
-                <input {...register('senha')}
-                placeholder="Senha" 
-                className={styles.campo} />
-
-                
-                {errors.senha && (
-                    <p> {errors.senha.message} </p>
-                )}
-                <Link to='/'><button className={styles.botao}>Confirmar</button></Link>
+                    className={estilos.campo}  
+                    type="text"
+                    name="nome"
+                    placeholder='Usuário'
+                    value={nome}
+                    onChange={e => setNome(e.target.value)}
+                />
+                <input
+                    className={estilos.campo}  
+                    type="email"
+                    name="email"
+                    placeholder='Email'
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                />
+                <input
+                    className={estilos.campo}  
+                    type="password"
+                    name="senha"
+                    placeholder='Senha'
+                    value={senha}
+                    onChange={e => setSenha(e.target.value)}
+                />
+                <button className={estilos.button} type='submit'>Enviar</button>
             </form>
         </div>
-    )
+    );
 }
+ 
