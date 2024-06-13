@@ -1,0 +1,6 @@
+Usuário:  smartuser
+Senha: senai
+
+-Filtro sempre com o "Status Operacional" NÃO selecionado;
+-Não cadastrar com latitude e longitude falsa, dá erro no mapa;
+-Token expira em 15min, só fazer login novamente.
